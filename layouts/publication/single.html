@@ -1,6 +1,6 @@
-{{ partial "header.html" . }}
-{{ partial "navbar.html" . }}
-<div class="pub" itemscope itemtype="http://schema.org/CreativeWork">
+{{- define "main" -}}
+
+<div class="pub">
 
   {{ partial "page_header.html" . }}
 
@@ -8,7 +8,7 @@
 
     {{ if .Params.abstract }}
     <h3>{{ i18n "abstract" }}</h3>
-    <p class="pub-abstract" itemprop="text">{{ .Params.abstract | markdownify }}</p>
+    <p class="pub-abstract">{{ .Params.abstract | markdownify }}</p>
     {{ end }}
 
     {{ if (.Params.publication_types) and (ne (index .Params.publication_types 0) "0") }}
@@ -53,6 +53,8 @@
     {{ partial "tags.html" . }}
     {{ partial "page_author.html" . }}
 
+    {{ partial "comments" . }}
+
   </div>
 </div>
 
@@ -62,5 +64,4 @@
 </div>
 {{ end }}
 
-{{ partial "footer_container.html" . }}
-{{ partial "footer.html" . }}
+{{- end -}}
