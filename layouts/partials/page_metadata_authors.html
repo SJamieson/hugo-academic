@@ -9,9 +9,9 @@
     {{- if gt $index 0 }}, {{ end -}}
     <span>
       {{- if and $profile_page $link_authors -}}
-        <a href="{{$profile_page.RelPermalink}}">{{$name}}</a>
+        <a href="{{$profile_page.RelPermalink}}">{{$name | replaceRE "Stewart Jamieson" "**Stewart Jamieson**" | markdownify}}</a>
       {{- else -}}
-        {{$name}}
+        {{$name | replaceRE "Stewart Jamieson" "**Stewart Jamieson**" | markdownify}}
       {{- end -}}
     </span>
   {{- end -}}
