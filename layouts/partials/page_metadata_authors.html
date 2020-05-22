@@ -1,5 +1,7 @@
 {{/* Display author list. */}}
 
+
+
 {{- $taxonomy := "authors" }}
 {{ with .Param $taxonomy }}
   {{ $link_authors := site.Params.link_authors | default true }}
@@ -16,3 +18,17 @@
     </span>
   {{- end -}}
 {{- end -}}
+
+{{ if .Params.publication }}
+<div class="pub-publication">
+{{ if .Params.publication_short }}
+	{{ .Params.publication_short | markdownify }}
+{{ else }}
+	{{ .Params.publication | markdownify }}
+{{ end }}
+</div>
+{{ end }}
+
+{{ if .Params.award }}
+    <div class="awards">{{ .Params.award }}</div>
+{{ end }}
