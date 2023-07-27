@@ -31,7 +31,7 @@
   {{ $query = $query | intersect $archive_page.Pages }}
 {{ end }}
 {{ if $st.Params.content.filters.author }}
-  {{ $archive_page = site.GetPage (printf "authors/%s" (urlize $st.Params.content.filters.author)) }}
+  {{ $archive_page = site.GetPage "publication" }}
   {{ $query = $query | intersect $archive_page.Pages }}
 {{ end }}
 {{ if $st.Params.content.filters.exclude_featured }}
